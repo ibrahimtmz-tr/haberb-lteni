@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-4 mt-4">
+    <h4>Resim Yükle</h4>
+    <input type="file" (change)="ResimSec($event)">
+    <button class="btn btn-dark" (click)="ResimYukle()">Yükle</button>
+  </div>
+
+  <div class="col-md-8 mt-4">
+    <button class="btn btn-outline-danger" style="float:right" [routerLink]="['/admin']">Geri Dön</button>
+    <h4>Resim Listele</h4>
+    <table class="table table-hover">
+      <thead>
+        <th>Resim Adı</th>
+        <th>Sil</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resim of resimler">
+          <td>
+            <img src=' {{resim.url}}' />
+            <a href=" {{resim.url}}" target="_blank"> {{resim.adi}}</a>
+          </td>
+          <td><button class="btn btn-dark" (click)="resimSil(resim)">Sil</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

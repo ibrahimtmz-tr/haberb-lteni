@@ -1,0 +1,18 @@
+  <div class="row">
+    <div class="col-md-3">
+      <app-kategori></app-kategori>
+    </div>
+    <div class="col-md-9">
+      <div class="row mt-4">
+        <div *ngFor="let haber of haberler" class="icerikbox" style="max-width: 500px;">
+          <img src="{{haber.imageUrl}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{haber.icerikbaslik}}</h5>
+            <p class="card-text">{{haber.icerikaciklama}}
+            </p>
+            <a [routerLink]="['/urundetay',haber.key]" class="btn btn-dark">Devamını oku..</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

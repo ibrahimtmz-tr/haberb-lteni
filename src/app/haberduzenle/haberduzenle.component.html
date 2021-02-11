@@ -1,0 +1,60 @@
+<div>
+  <div class="row mt-3"></div>
+  <div class="row" *ngIf="ekleduzenle">
+    <div class="col-md-12">
+      <h4>Haber Düzenle</h4>
+      <form #frm="ngForm" (submit)="Kaydet()">
+        <div class="form-group">
+          <label>Haber Başlık</label>
+          <input type="text" class="form-control" name="baslik" [(ngModel)]=" secKayit.icerikbaslik">
+        </div>
+        <div class="form-group">
+          <label>Haber Açıklama</label>
+          <input type="text" class="form-control" name="aciklama" [(ngModel)]=" secKayit.icerikaciklama">
+        </div>
+        <div class="form-group">
+          <label>Haber</label>
+          <textarea type="text" rows="5" class="form-control" name="haber" [(ngModel)]=" secKayit.icerikM"> </textarea>
+        </div>
+        <div class="form-group">
+          <label>Kategori ID</label>
+          <input type="text" class="form-control" name="kategoriId" [(ngModel)]=" secKayit.categoryId">
+        </div>
+        <div class="form-group">
+          <label>Haber Resim Url</label>
+          <input type="text" class="form-control" name="haberresim" [(ngModel)]=" secKayit.imageUrl">
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Düzenle" class="btn btn-outline-success">
+          <button class="btn btn-outline-danger ml-3" (click)="ekleduzenle=false;">Vazgeç</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-outline-danger" style="float:right" [routerLink]="['/admin']">Geri Dön</button>
+    <br>
+    <br>
+    <table class=" table table-hover">
+
+      <thead>
+        <th>Haber Başlığı</th>
+        <th>Haber Açıklaması</th>
+        <th>Haber</th>
+        <th>Kategori ID</th>
+        <th>Haber Resmi</th>
+        <th>Düzenle</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let haber of haberler">
+          <td>{{haber.icerikbaslik}}</td>
+          <td>{{haber.icerikaciklama}}</td>
+          <td>{{haber.icerikM}}</td>
+          <td>{{haber.categoryId}}</td>
+          <td>{{haber.imageUrl}}</td>
+          <td><button class="btn btn-outline-danger" style="float:right"
+              (click)="HaberSec(haber);ekleduzenle=true;">Düzenle</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>

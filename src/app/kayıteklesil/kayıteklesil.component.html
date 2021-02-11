@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-3"></div>
+  <div class="col-md-12">
+    <button class="btn btn-outline-danger" style="float:right" [routerLink]="['/admin']">Geri Dön</button>
+    <br>
+    <br>
+    <table class=" table table-hover">
+
+      <thead>
+        <th>Haber Başlığı</th>
+        <th>Haber Açıklaması</th>
+        <th>Haber</th>
+        <th>Kategori ID</th>
+        <th>Haber Resmi</th>
+        <th>Sil</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let haber of haberler">
+          <td>{{haber.icerikbaslik}}</td>
+          <td>{{haber.icerikaciklama}}</td>
+          <td>{{haber.icerikM}}</td>
+          <td>{{haber.categoryId}}</td>
+          <td>{{haber.imageUrl}}</td>
+          <td><button class="btn btn-outline-danger" (click)="KayitSil(haber)">Sil</button></td>
+        </tr>
+      </tbody>
+    </table>
